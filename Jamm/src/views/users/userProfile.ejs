@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head" , {title:"Perfil de usuario"}) %>
+
+<body>
+
+   <%- include ('../partials/header') %>
+   <main>
+
+   <!--Container: revisar clases-->
+   <div class="container" style="margin-top: 40px;">
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="espaciadoperfil">Hola <%=userLogged.fullName %></h2>
+            <img src="/images/users/<%= locals.userLogged.image %>">
+            <br>
+            <h2 class="espaciadoperfil">Tu mail de registro es:</h2>
+
+            <div class="alert alert-succes espaciadohref centrar"><%= userLogged.email %></div>
+        </div>
+    </div>
+</div>
+<div class="boton-editar centrar espacioabajo">
+    <a href="/users/userEdit">
+    <button type="submit" class="boton-formulario2">Editar usuario</button>
+    </a>
+</div>
+
+<% if (locals.isLogged && locals.userLogged.category == 'admin') { %>
+    <div class="boton-editar centrar espacioabajo">
+        <a href="/crearProducto %>">
+        <button type="submit" class="boton-formulario2">Crear producto</button>
+        </a>
+    </div>
+        <% } %>
+
+<div class="espacioloco"></div>
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

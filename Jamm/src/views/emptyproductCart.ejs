@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <%- include("./partials/head" , {title:"Carrito de compras"}) %>
+
+    <body>
+        <%- include("./partials/header") %>
+
+        <main>
+
+            <div class="small-container cart-page">
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                   
+
+                </table>
+
+                <p class="noProduct">NO TIENES PRODUCTOS EN TU CARRITO</p>
+                <a href="/">Buscar productos</a>
+
+                <div class="total-price">
+                    <table>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>0.000.-</td>
+                        </tr>
+                        <tr>
+                            <td>IVA 21%</td>
+                            <td>0.000.-</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>0.000.-</td>
+                        </tr>
+                    </table>
+                </div>
+        
+        </main>
+
+        <%- include("./partials/footer") %>
+
+
+    </body>
+</html>

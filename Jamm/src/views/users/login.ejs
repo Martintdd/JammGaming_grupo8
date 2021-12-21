@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head" , {title:"Logueate"}) %>
+
+<body>
+
+    <header class="header-login">
+        <div>
+            <a href="/"> <img src="/images/JAMM-Gaming.png" class="logo-login"></a>
+        </div>
+          
+    </header>
+<br>
+
+    <div class="contenedor-login">
+        <div class="errores">
+            <ul></ul>
+        </div>
+        <form action="/users/login" method="POST" class="create-form">
+        <div class="control-formulario">
+            <label>¡Recordanos quién sos!</label>
+        </div>
+        <div class="control-formulario">
+            <label>Email:</label>
+            <input type="text" name="email" placeholder="Usuario o mail" class="control email">
+
+            <% if(locals.errors && errors.email) { %>
+           <!-- ver esta clase-->
+            <div class="text-danger">
+                <%= errors.email.msg %>
+            </div>
+            <% } %>
+
+        </div> 
+        <div class="control-formulario">
+            <label>Contraseña:</label>
+            <input type="password" name="password" placeholder="password" class="control password">
+        </div>   
+
+        <div class="control-formulario">
+            <label>Recordarme</label>
+            <input type="checkbox" name="recordarUsuario">
+        </div>  
+        
+        <div class="control-formulario">  
+        <button type="reset" class="boton-formulario">Cancelar</button>
+        <button type="submit" class="boton-formulario">Continuar</button>
+        
+        </div>
+
+        <div class="control-formulario">
+       <a href="#">Olvidé mi contraseña</a>
+    </div>    
+
+    <div class="control-formulario">
+        <a href="/register">Crear usuario</a>
+     </div>    
+
+    </form>
+    </div>
+
+    </section>
+    <script src="/js/validationLogin.js" type="text/javascript"></script>
+
+</body>
+</html>

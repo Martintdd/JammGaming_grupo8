@@ -1,0 +1,46 @@
+<header>
+    <div class="top-header">
+        <a href="/"><img class="logo-login" src="/images/JAMM-Gaming.png" alt="Logo JAMM"> </a>
+       <div> 
+        
+        <form action="/users/search" method= "GET">
+
+        <input type="text" class="buscador" placeholder="Buscar" name="search">
+        <button type="submit" value="search"><a href="#"><i class="fa fa-search"></i></a> </button></div>
+
+        </form>
+      
+        <a href="mailto:JAMM@JAMM.com"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="/productCart"><i class="fas fa-heart"></i></a>
+        <a href="/productCart"><i class="fas fa-shopping-cart"></i></a> 
+      
+        <% if (locals.isLogged) { %>
+        <li class=""><a class="" href="/users/logout">Logout</a></li>
+        <li class=""> <img src="/images/users/<%= locals.userLogged.image %>" width="40" style="border-radius: 100%;"></li>
+        
+        <li class=""><a class="" href="/users/userProfile"><%= locals.userLogged.fullName %></a></li>
+        <% } else { %>
+        <a class="" href="/users/login"><i class="fa fa-fw fa-user"></i></a>
+        <% } %>
+
+        <!-- <a href="/login"><i class="fa fa-fw fa-user"></i></a> -->
+        
+        </div>
+       
+    <nav>
+        <div class="categoria todoprod">
+            <form action="" method="GET">
+                <label>Categoría</label>
+                <select name="categorías" id="">
+                    <option value="Todas">Todas</option>
+                    <option value="Video">Gaming</option>
+                    <option value="Audio">Accesorios</option>
+                    <option value="Dispositivos">Dispositivos</option>
+                </select>
+            </form>
+            <a href="/products" class="espaciadohref">Ver todos</a>
+        </div>
+
+    </nav>   
+
+</header>  

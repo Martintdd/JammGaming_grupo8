@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head" , {title:"Editar Producto"}) %>
+
+<body>
+
+    <header class="header-login">
+        <div>
+            <a href="/"> <img src="/images/JAMM-Gaming.png" class="logo-login"></a>
+           
+        </div>
+          
+    </header>
+<br>
+    <div class="contenedor-login">
+    <form action="/edit/<%= products.id %>?_method=PUT" method="POST" class="create-form" enctype="multipart/form-data">
+        <div class="control-formulario">
+            <label>Editar producto</label>
+        </div>
+        <div class="control-formulario">
+            <label>Nombre del producto:</label>
+            <input type="text" name="nombreproducto" placeholder="Mouse XR3000" class="control" value="<%= products.productName %>">
+          
+        </div> 
+        <div class="control-formulario">
+            <label>Descripción:</label>
+            <textarea type="text" name="descripcion" placeholder="Describe el producto" class="control"><%= products.description %></textarea>
+        </div> 
+        <div class="control-formulario">
+            <input type="file" name="fotoProducto" accept=".jpg, .png" multiple>  <!-- cómo agregar imagen -->
+        </div>
+        <div class="control-formulario">
+            <label>Categoría:</label>
+            <select name="categoria" class="control">
+
+                <% for (let i = 0; i < category.length; i++ ) { %>
+                    <% if (category[i].id == products.category_id) { %>
+                        <option value="<%= category[i].id %>" selected>
+                            <%= category[i].name %>
+                        </option>
+                    <% } else { %>
+                        <option value="<%= category[i].id %>">
+                            <%= category[i].name %>
+                        </option>
+                    <% } %>
+                <% } %>
+               
+            </select>
+        </div>   
+        <div class="control-formulario">
+            <label>Color:</label>
+            <select name="color" class="control">
+
+                <% if (products.color === "Blanco") { %>
+                    <option value="">Elegí el color</option>
+                    <option value="Blanco" selected>Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Otro">Otro</option>
+                    <% } else if (products.color === "Negro") { %>
+                    <option value="">Elegí el color</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro" selected>Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Otro">Otro</option>
+                    <% } else if (products.color === "Rojo") { %>
+                    <option value="">Elegí el color</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo" selected>Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Otro">Otro</option>
+                    <% } else if (products.color === "Azul") { %>
+                    <option value="">Elegí el color</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul" selected>Azul</option>
+                    <option value="Otro">Otro</option>
+                    <% } else if (products.color === "Otro") { %>
+                    <option value="">Elegí el color</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Otro" selected>Otro</option>
+                    <% } else { %>
+                    <option value="" selected>Elegí el color</option>
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Otro">Otro</option>  
+                <% } %>
+        </select>
+        </div>   
+        <div class="control-formulario">
+            <label>Precio $AR:</label>
+            <input type="number" name="precio" placeholder="200,50" class="control" value="<%= products.price %>">
+        </div>   
+        
+        <div class="control-formulario">  
+
+        <button type="submit" class="boton-formulario">Confirmar edición</button>
+        
+        </div>
+
+            <div class="control-formulario">  
+
+            <button type="reset" class="boton-formulario">Cancelar</button>
+            
+            </div>
+    </form>
+
+    <form method="POST" action="/delete/<%= products.id %>?_method=DELETE">
+        <div class="control-formulario">  
+            <button type="submit" class="boton-formulario-borrar">Eliminar producto</button>
+            </div>
+        </form>
+    </div>
+
+    </section>
+</body>
+</html>
