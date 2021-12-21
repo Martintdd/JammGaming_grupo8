@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
-    "username": "jamm",
-    "password": "jamm8digital_",
+    "username": "root",
+    "password": null,
     "database": "jamm_grupo8",
-    "host": "mysql-jamm.alwaysdata.net",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {

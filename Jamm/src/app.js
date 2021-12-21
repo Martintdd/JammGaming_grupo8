@@ -63,7 +63,7 @@ app.use("/", usersRoutes);       // duda si el "/" está bien o sería "/users".
 
 
 
-app.listen(3010, ()=> console.log('Servidor funcionando'));
+app.listen(3020, ()=> console.log('Servidor funcionando'));
 
 
 
